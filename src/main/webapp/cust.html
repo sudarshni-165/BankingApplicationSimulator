@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            display: inline-block;
+            padding: 15px 25px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            margin-right: 2px;
+            font-weight: bold;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f1f1;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .submit-button, .delete-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .delete-button {
+            background-color: #d9534f;
+        }
+        .submit-button:hover, .delete-button:hover {
+            background-color: #0056b3;
+        }
+        .delete-button:hover {
+            background-color: #c9302c;
+        }
+        .logout-button {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            padding: 10px 20px;
+            background-color: #d9534f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+        .header {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            padding: 10px 20px;
+            background-color: #d9534f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="username">Username: Chico</div>
+    
+</div>
+<div class="tabs">
+    <div class="tab active" onclick="showTabContent(event, 'tab1')">USER DETAILS</div>
+    <div class="tab" onclick="showTabContent(event, 'tab2')">REGISTER USER</div>
+    <div class="tab" onclick="showTabContent(event, 'tab3')">DELETE USER</div>
+    <div class="tab" onclick="showTabContent(event, 'tab4')">MODIFY USER</div>
+    <div class="tab" onclick="showTabContent(event, 'tab5')">RESET PASSWORD</div>
+</div>
+
+<div id="tab1" class="tab-content active">
+    <h2>User Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Account No</th>
+                <th>Username</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Date of Birth</th>
+                <th>ID Proof</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>12345</td>
+                <td>Chico</td>
+                <td>91XXXXXXXXXX</td>
+                <td>chico@example.com</td>
+                <td>Address1</td>
+                <td>YYYY-MM-DD</td>
+                <td>Aadhar card</td>
+                <td>1500</td>
+            </tr>
+            <tr>
+                <td>37965</td>
+                <td>Emily</td>
+                <td>91XXXXXXXXXX</td>
+                <td>emily@example.com</td>
+                <td>Address2</td>
+                <td>YYYY-MM-DD</td>
+                <td>Savings</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td>42121</td>
+                <td>James</td>
+                <td>91XXXXXXXXXX</td>
+                <td>james@example.com</td>
+                <td>Address3</td>
+                <td>YYYY-MM-DD</td>
+                <td>Current</td>
+                <td>3000</td>
+            </tr>
+            <tr>
+                <td>44403</td>
+                <td>Olivia</td>
+                <td>91XXXXXXXXXX</td>
+                <td>olivia@example.com</td>
+                <td>Address4</td>
+                <td>YYYY-MM-DD</td>
+                <td>Aadhar card</td>
+                <td>2500</td>
+            </tr>
+            <tr>
+                <td>49915</td>
+                <td>Michael</td>
+                <td>91XXXXXXXXXX</td>
+                <td>michael@example.com</td>
+                <td>Address5</td>
+                <td>YYYY-MM-DD</td>
+                <td>Savings</td>
+                <td>1800</td>
+            </tr>
+            <tr>
+                <td>80617</td>
+                <td>Sophia</td>
+                <td>91XXXXXXXXXX</td>
+                <td>sophia@example.com</td>
+                <td>Address6</td>
+                <td>YYYY-MM-DD</td>
+                <td>Current</td>
+                <td>2200</td>
+            </tr>
+            <tr>
+                <td>99330</td>
+                <td>Joby J</td>
+                <td>91XXXXXXXXXX</td>
+                <td>jobyj@example.com</td>
+                <td>Address7</td>
+                <td>YYYY-MM-DD</td>
+                <td>Aadhar card</td>
+                <td>1400</td>
+            </tr>
+        </tbody>
+    </table>  
+</div>
+
+<div id="tab2" class="tab-content">
+    <h2>Register User</h2>
+    <div class="container">
+        <form action="registerServlet" method="post">
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="Full_Name" name="full_name" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="Mobile_No">Mobile No:</label>
+            <input type="text" id="Mobile_No" name="mobile" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="account_type">Account Type:</label>
+            <select id="account_type" name="account_type" required>
+                <option value="Savings">Savings</option>
+                <option value="Current">Current</option>
+                <option value="Admin">Admin</option>
+            </select>
+
+            <label for="date_of_birth">Date Of Birth:</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" required>
+
+            <label for="ID_Proof">ID Proof:</label>
+            <select id="ID_Proof" name="ID_Proof" required>
+                <option value="" disabled selected>--select--</option>
+                <option value="Aadhar Card">Aadhar Card</option>
+                <option value="Driving License">Driving License</option>
+                <option value="Passport">Passport</option>
+                <option value="Pan Card">Pan Card</option>
+            </select>
+
+            <input type="submit" class="submit-button" value="Register">
+        </form>
+    </div>
+</div>
+
+<div id="tab3" class="tab-content">
+    <div class="container">
+        <h2>Delete User</h2>
+        <form action="deleteServlet" method="post">
+            <label for="account-no">Account No</label>
+            <input type="text" id="delete-account-no" name="account_no" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="delete-username" name="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="delete-email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="delete-password" name="password" required>
+
+            <button type="submit" class="delete-button">Delete User</button>
+        </form>
+    </div>
+</div>
+
+<div id="tab4" class="tab-content">
+    <div class="container">
+        <h2>Modify User</h2>
+        <form id="fetch-form" onsubmit="return false;">
+            <label for="fetch-account-no">Account No</label>
+            <input type="text" id="fetch-account-no" name="fetch_account_no" required>
+            <button type="button" class="submit-button" onclick="fetchUserDetails()">Fetch User</button>
+        </form>
+
+        <form id="modify-form" action="modifyServlet" method="post" style="display: none;">
+            <label for="modify-account-no">Account No</label>
+            <input type="text" id="modify-account-no" name="account_no" required readonly>
+
+            <label for="modify-username">Username</label>
+            <input type="text" id="modify-username" name="username" required>
+
+            <label for="modify-email">Email</label>
+            <input type="email" id="modify-email" name="email" required>
+
+            <label for="modify-mobile">Mobile</label>
+            <input type="text" id="modify-mobile" name="mobile" required>
+
+            <label for="modify-address">Address</label>
+            <input type="text" id="modify-address" name="address" required>
+
+            <label for="modify-date-of-birth">Date of Birth</label>
+            <input type="date" id="modify-date-of-birth" name="date_of_birth" required>
+
+            <label for="modify-account-type">Account Type</label>
+            <select id="modify-account-type" name="account_type" required>
+                <option value="">---select option---</option>
+                <option value="Admin">Admin</option>
+                <option value="Current">Current</option>
+                <option value="Savings">Savings</option>
+            </select>
+
+            <label for="modify-id-proof">ID Proof</label>
+            <select id="modify-id-proof" name="id_proof" required>
+                <option value="">---select option---</option>
+                <option value="Aadhar Card">Aadhar Card</option>
+                <option value="Driving License">Driving License</option>
+                <option value="Passport">Passport</option>
+                <option value="Pan Card">Pan Card</option>
+            </select>
+
+            <button type="submit" class="submit-button">Modify User</button>
+        </form>
+    </div>
+</div>
+<div id="tab5" class="tab-content">
+    <h2>Reset Password</h2>
+    <div class="container">
+        <form action="resetPasswordServlet" method="post">
+            
+
+            <label for="reset-email">Email:</label>
+            <input type="email" id="reset-email" name="email" required>
+
+            <label for="current-password">Current Password:</label>
+            <input type="password" id="current-password" name="current_password" required>
+
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="new_password" required>
+
+            <label for="confirm-new-password">Confirm New Password:</label>
+            <input type="password" id="confirm-new-password" name="confirm_new_password" required>
+
+            <input type="submit" class="submit-button" value="Reset Password">
+        </form>
+    </div>
+</div>
+
+
+<a href="logoutServlet" class="logout-button">Logout</a>
+
+
+
+<script>
+    function showTabContent(event, tabId) {
+        // Hide all tab contents
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        // Remove active class from all tabs
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        // Show the selected tab content
+        document.getElementById(tabId).classList.add('active');
+
+        // Add active class to the selected tab
+        event.currentTarget.classList.add('active');
+    }
+
+    function fetchUserDetails() {
+        const accountNo = document.getElementById('fetch-account-no').value;
+
+        // Simulate fetching user details - replace with actual fetch logic
+        // For demonstration, I'm hardcoding values here
+        const userDetails = {
+            username: 'User Name', // Replace with fetched username
+            email: 'user@example.com', // Replace with fetched email
+            mobile: '919876543210', // Replace with fetched mobile number
+            address: 'User Address', // Replace with fetched address
+            dateOfBirth: 'YYYY-MM-DD', // Replace with fetched date of birth
+            accountType: 'Savings', // Replace with fetched account type
+            idProof: 'Aadhar Card' // Replace with fetched ID proof
+        };
+
+        // Populate the modify form with fetched details
+        document.getElementById('modify-account-no').value = accountNo;
+        document.getElementById('modify-username').value = userDetails.username;
+        document.getElementById('modify-email').value = userDetails.email;
+        document.getElementById('modify-mobile').value = userDetails.mobile;
+        document.getElementById('modify-address').value = userDetails.address;
+        document.getElementById('modify-date-of-birth').value = userDetails.dateOfBirth;
+        document.getElementById('modify-account-type').value = userDetails.accountType;
+        document.getElementById('modify-id-proof').value = userDetails.idProof;
+
+        // Show the modify form and hide the fetch form
+        document.getElementById('fetch-form').style.display = 'none';
+        document.getElementById('modify-form').style.display = 'block';
+    }
+
+    let timeout;
+    const maxIdleTime = 5 * 60 * 1000;
+
+    function logout() {
+        window.location.href = 'removeAttribute';
+    }
+
+    function resetTimer() {
+        clearTimeout(timeout);
+        timeout = setTimeout(logout, maxIdleTime);
+    }
+
+    window.onload = function() {
+        document.onmousemove = resetTimer;
+        document.onscroll = resetTimer;
+        resetTimer();
+    };
+</script>
+
+</body>
+</html>
